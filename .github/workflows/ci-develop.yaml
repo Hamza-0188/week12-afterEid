@@ -8,7 +8,7 @@ on:
        - synchronize
 jobs:
  linting-develop-job:
-   runs-on: unbantu-latest
+   runs-on: ubuntu-latest
    steps:
      - name: Clone repso
        uses: actions/checkout@4
