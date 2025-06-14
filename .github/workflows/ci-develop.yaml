@@ -11,7 +11,7 @@ jobs:
    runs-on: ubuntu-latest
    steps:
      - name: Clone repso
-       uses: actions/checkout@4
+       uses: actions/checkout@v4
      - name: Lint HTML Files
        run:  npx htmlhint "**/*.html"
      - name: Lint CSS Files
