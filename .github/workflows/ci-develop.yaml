@@ -2,18 +2,21 @@ name: wf-ci-develop
 on:
    pull_request:
      branches:
-     - develop
+       - develop
      types:
-     - opened
-     - synchronize
+       - opened
+       - synchronize
 jobs:
  linting-develop-job:
-  runs-on: unbantu-latest
-  steps:
-    - name: Clone repso
-      uses: actions/checkout@4
-    - name: Lint HTML Files
-      run:  npx htmlhint "**/*.html"
-    - name: Lint CSS Files
-      run: npx stylelint "**/*.css"" 
+   runs-on: ubuntu-latest
+   steps:
+     - name: Clone repso
+       uses: actions/checkout@v4
+     - name: Lint HTML Files
+       run:  npx htmlhint "**/*.html"
+     - name: Lint CSS Files
+       run: npx stylelint "**/*.css"
+     - name: Test Build Static Website 
+       run:  npx parcel build "./src/index.html" --dist-dir "./dist"
+    
    
