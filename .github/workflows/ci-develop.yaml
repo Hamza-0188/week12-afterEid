@@ -1,0 +1,19 @@
+name: wf-ci-develop
+on:
+   pull_request:
+     branches:
+     - develop
+     types:
+     - opened
+     - synchronize
+jobs:
+ linting-develop-job:
+  runs-on: unbantu-latest
+  steps:
+    - name: Clone repso
+      uses: actions/checkout@4
+    - name: Lint HTML Files
+      run:  npx htmlhint "**/*.html"
+    - name: Lint CSS Files
+      run: npx stylelint "**/*.css"" 
+   
